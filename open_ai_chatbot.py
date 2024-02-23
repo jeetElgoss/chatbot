@@ -13,7 +13,7 @@ conversation_history = []
 
 class ChatBot:
 
-    def chat_with_openai(prompt):
+    def chat_with_openai(self, prompt):
         try:
             response = client.completions.create(
                 model='gpt-3.5-turbo',
@@ -32,3 +32,8 @@ class ChatBot:
         except Exception as e:
             print("Error :", e)
 
+    def call_chat_with_openai(self):
+        # Example usage
+        user_input = input("Enter your question?")
+        chatbot_response = self.chat_with_openai(user_input)
+        print(chatbot_response)
